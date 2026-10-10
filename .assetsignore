@@ -1,0 +1,12 @@
+# Never serve these from the public site
+.git
+.gitignore
+.wrangler
+LAUNCH.md
+generate_assets.py
+assetsignore
+wrangler.jsonc
+node_modules
+.DS_Store
+*.pyc
+__pycache__
