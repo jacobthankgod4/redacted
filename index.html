@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REDACTED — Intelligence Terminal</title>
+<meta name="description" content="REDACTED ($REDACTED) — the privacy memecoin riding the ZEC wave. Solana. 0/0. Everything is redacted, including this.">
+<meta property="og:title" content="REDACTED — Intelligence Terminal">
+<meta property="og:description" content="SOURCE: ████████. CONFIDENCE: ████████. ACTION: ████████.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="REDACTED — Intelligence Terminal">
+<meta name="twitter:description" content="SOURCE: ████████. CONFIDENCE: ████████. ACTION: ████████.">
+<meta name="twitter:image" content="og.png">
+<link rel="icon" type="image/png" href="pfp.png">
+<link rel="apple-touch-icon" href="pfp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --panel: #121214;
+    --panel2: #17171a;
+    --line: #26262b;
+    --text: #e8e8ea;
+    --dim: #8a8a93;
+    --red: #ff2e2e;
+    --red-dim: #b31e1e;
+    --amber: #ffb020;
+    --bar: #000;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+  .bar {
+    display: inline-block;
+    background: var(--bar);
+    color: transparent;
+    user-select: none;
+    border-radius: 1px;
+    vertical-align: baseline;
+  }
+  .stamp {
+    display: inline-block;
+    border: 2px solid var(--red);
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 2px 10px;
+    font-size: 12px;
+    transform: rotate(-4deg);
+  }
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,11,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 50;
+  }
+  .headrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .logo { font-weight: 700; letter-spacing: 0.12em; font-size: 15px; }
+  .logo b { color: var(--red); }
+  .navlinks { display: flex; gap: 18px; font-size: 12px; }
+  .navlinks a { color: var(--dim); text-decoration: none; }
+  .navlinks a:hover { color: var(--text); }
+  .hero { padding: 64px 0 40px; text-align: center; }
+  .hero .stamp { margin-bottom: 26px; }
+  h1 {
+    font-size: clamp(34px, 8vw, 64px);
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  h1 .blk { color: var(--red); }
+  .tagline { color: var(--dim); font-size: 14px; max-width: 520px; margin: 0 auto 34px; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn:hover { border-color: var(--dim); }
+  .btn.red { background: var(--red); border-color: var(--red); color: #fff; }
+  .btn.red:hover { background: var(--red-dim); }
+  .btn.disabled { opacity: 0.45; pointer-events: none; }
+  .subnote { font-size: 11px; color: var(--dim); margin-top: 14px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 44px 0; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 18px 18px 16px;
+  }
+  .card h3 {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--dim);
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .kv { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  .kv:last-child { border-bottom: none; }
+  .kv .k { color: var(--dim); }
+  .kv .v { font-weight: 600; }
+  .kv .v.red { color: var(--red); }
+  .price-big { font-size: 28px; font-weight: 700; letter-spacing: 0.04em; }
+  .price-sub { font-size: 12px; color: var(--dim); margin-top: 2px; }
+  .pulse { display: inline-block; width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-right: 7px; animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+  .brief {
+    background: #f4f1e8;
+    color: #1a1a1a;
+    padding: 26px 24px;
+    margin: 44px 0;
+    border: 1px solid #d8d2c0;
+    position: relative;
+  }
+  .brief::before {
+    content: 'TOP SECRET // SI // NOFORN';
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .brief h3 { font-size: 12px; letter-spacing: 0.2em; margin-bottom: 16px; color: #555; }
+  .brief p { font-size: 13px; margin-bottom: 10px; }
+  .brief .cbar {
+    display: inline-block;
+    background: #000;
+    color: transparent;
+    border-radius: 1px;
+    user-select: none;
+  }
+  .brief .ok { color: #0a5c0a; font-weight: 700; }
+
+  .chartwrap { margin: 44px 0; }
+  .chartwrap h3 { font-size: 11px; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 12px; text-transform: uppercase; }
+  .chartframe {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dim);
+    font-size: 13px;
+    text-align: center;
+    padding: 30px;
+  }
+  .chartframe iframe { width: 100%; height: 420px; border: 0; }
+
+  .how { margin: 44px 0; }
+  .how h3 { font-size: 11px; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 14px; text-transform: uppercase; }
+  .steps { display: grid; gap: 10px; }
+  .step {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--panel); border: 1px solid var(--line); padding: 14px 16px;
+  }
+  .stepn { color: var(--red); font-weight: 700; font-size: 13px; min-width: 28px; }
+  .stept { font-size: 13px; }
+  .stept b { display: block; margin-bottom: 2px; }
+  .stept span { color: var(--dim); font-size: 12px; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+    padding: 28px 0 40px;
+    font-size: 11px;
+    color: var(--dim);
+    text-align: center;
+  }
+  footer .socials { margin-bottom: 14px; display: flex; gap: 16px; justify-content: center; }
+  footer .socials a { color: var(--dim); text-decoration: none; border-bottom: 1px dotted var(--dim); }
+  footer .socials a:hover { color: var(--text); }
+
+  .ticker {
+    border: 1px solid var(--line);
+    background: var(--panel2);
+    overflow: hidden;
+    margin: 28px 0 0;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--dim);
+  }
+  .ticker .inner { display: inline-block; padding: 8px 0; animation: scroll 28s linear infinite; }
+  .ticker span { margin: 0 26px; }
+  .ticker b { color: var(--red); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .redactline { cursor: help; border-bottom: 1px dashed var(--dim); }
+  .redactline:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="logo">[<b>&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</b>]</div>
+    <nav class="navlinks">
+      <a href="#token">TOKEN</a>
+      <a href="#briefing">BRIEFING</a>
+      <a href="#terminal">TERMINAL</a>
+      <a href="#acquire">ACQUIRE</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="stamp">CLASSIFIED &mdash; EYES ONLY</div>
+    <h1>REDACT<span class="blk">ED</span></h1>
+    <p class="tagline">
+      SOURCE: <span class="bar" style="width:88px">&nbsp;</span>.
+      CONFIDENCE: <span class="bar" style="width:64px">&nbsp;</span>.
+      The privacy narrative is live. This is its mascot.
+    </p>
+    <div class="cta">
+      <a class="btn red" id="buyBtn" href="#acquire" aria-disabled="true">CLEARANCE PENDING</a>
+      <a class="btn" id="chartBtn" href="#terminal">VIEW TERMINAL</a>
+    </div>
+    <p class="subnote" id="subnote">CONTRACT: &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="inner" id="tickerInner">
+      <span>ZEC <b>&#9608;&#9608;&#9608;&#9608;</b></span><span>HOLDERS <b>&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</b></span><span>MARKET CAP <b>&#9608;&#9608;&#9608;&#9608;</b></span><span>LIQUIDITY <b>&#9608;&#9608;&#9608;&#9608;</b></span><span>TOP HOLDER <b>REDACTED</b></span><span>EXCHANGE LISTING <b>&#9608;&#9608;&#9608;</b></span><span>NEXT WAVE <b>&#9608;&#9608;&#9608;&#9608;</b></span>
+    </div>
+  </div>
+
+  <section class="grid" id="token">
+    <div class="card">
+      <h3><span class="pulse"></span>Live Reference &mdash; ZEC/USD</h3>
+      <div class="price-big" id="zecPrice">&#8212;</div>
+      <div class="price-sub" id="zecSub">fetching Zcash reference price&hellip;</div>
+      <div style="margin-top:14px" class="kv"><span class="k">Source</span><span class="v">CoinGecko (public)</span></div>
+      <div class="kv"><span class="k">Narrative</span><span class="v red">PRIVACY</span></div>
+      <div class="kv"><span class="k">Wave status</span><span class="v">RIDING</span></div>
+    </div>
+    <div class="card">
+      <h3>Token Dossier</h3>
+      <div class="kv"><span class="k">Name</span><span class="v">REDACTED</span></div>
+      <div class="kv"><span class="k">Ticker</span><span class="v red">$REDACTED</span></div>
+      <div class="kv"><span class="k">Chain</span><span class="v">Solana</span></div>
+      <div class="kv"><span class="k">Supply</span><span class="v">1,000,000,000</span></div>
+      <div class="kv"><span class="k">Buy / Sell tax</span><span class="v">0 / 0</span></div>
+      <div class="kv"><span class="k">Mint</span><span class="v">REVOKED</span></div>
+      <div class="kv"><span class="k">Team allocation</span><span class="v">NONE</span></div>
+    </div>
+  </section>
+
+  <section class="brief" id="briefing">
+    <h3>INTELLIGENCE BRIEFING &mdash; FILE 001</h3>
+    <p>ASSESSMENT: Zcash (ZEC) has reclaimed relevance. Shielded transactions are the product. Privacy is the pitch.</p>
+    <p>RELATED ENTITIES: Anonymous Cat (<span class="cbar" style="width:70px">&nbsp;</span>) &middot; Nullmask (<span class="cbar" style="width:56px">&nbsp;</span>) &middot; Sapling (<span class="cbar" style="width:48px">&nbsp;</span>). All confirmed active.</p>
+    <p>GAP IDENTIFIED: The document aesthetic is unclaimed. Censor bars are universal. No mascot owns the redaction format.</p>
+    <p>RECOMMENDATION: <span class="ok">PROCEED.</span> Asset designation: REDACTED. Clearance: PUBLIC. Deployment: Solana, fair launch, zero allocation.</p>
+    <p style="margin-top:14px; color:#777;">FILE STATUS: <span class="cbar" style="width:120px">&nbsp;</span> &mdash; declassify at launch.</p>
+  </section>
+
+  <section class="chartwrap" id="terminal">
+    <h3>Market Terminal</h3>
+    <div class="chartframe" id="chartFrame">
+      <div>
+        <div style="font-size:28px; margin-bottom:10px;">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</div>
+        <div>CHART FEED: CLASSIFIED UNTIL LAUNCH</div>
+        <div style="margin-top:6px; font-size:11px;">Pair data will render here once the bonding curve graduates.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="acquire">
+    <h3>Acquisition Protocol</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="stepn">01</div>
+        <div class="stept"><b>Get a Solana wallet</b><span>Phantom or Solflare. Free. Install, create wallet, write down the seed phrase offline.</span></div>
+      </div>
+      <div class="step">
+        <div class="stepn">02</div>
+        <div class="stept"><b>Fund with SOL</b><span>Buy SOL on any major exchange, withdraw to your wallet address (Solana network).</span></div>
+      </div>
+      <div class="step">
+        <div class="stepn">03</div>
+        <div class="stept"><b id="step3title">Acquire $REDACTED</b><span id="step3text">Launch pending. The contract address will appear here and on X the moment the curve opens. Verify the CA only from official channels.</span></div>
+      </div>
+      <div class="step">
+        <div class="stepn">04</div>
+        <div class="stept"><b>Verify everything</b><span>Check the CA against the official X account. There is no presale. There is no team allocation. If someone DMs you first, it is not us.</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="socials">
+      <a href="https://x.com/" id="xLink" target="_blank" rel="noopener">X / TWITTER</a>
+      <a href="https://t.me/" id="tgLink" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://pump.fun/" id="pfLink" target="_blank" rel="noopener">PUMP.FUN</a>
+    </div>
+    <p>$REDACTED is a memecoin with no intrinsic value or expectation of financial return. It is a joke about privacy, redaction, and the internet. Nothing on this site is financial advice. There is no presale, no team token, and no promises. DYOR. The only product is the meme.</p>
+    <p style="margin-top:10px;">&#9608;&#9608;&#9608;&#9608; INTELLIGENCE TERMINAL &mdash; FILE OPEN</p>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// LAUNCH CONFIG — edit these three lines when the token is live
+// ============================================================
+const CONTRACT_ADDRESS = "";        // e.g. "AbC...xyz" — paste your pump.fun CA here
+const X_URL            = "";        // e.g. "https://x.com/RedactedDossier"
+const TELEGRAM_URL     = "";        // e.g. "https://t.me/RedactedDossier"
+// ============================================================
+
+function pad(s){ return String(s); }
+
+// --- ZEC live price (CoinGecko free, CORS-open) ---
+async function loadZec(){
+  const el = document.getElementById('zecPrice');
+  const sub = document.getElementById('zecSub');
+  try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_24hr_change=true');
+    const j = await r.json();
+    const usd = j.zcash.usd;
+    const ch = j.zcash.usd_24h_change;
+    el.textContent = '$' + Number(usd).toLocaleString('en-US', {maximumFractionDigits:2});
+    sub.textContent = '24h ' + (ch>=0?'+':'') + Number(ch).toFixed(2) + '% — privacy wave reference';
+  } catch(e){
+    el.textContent = '$——';
+    sub.textContent = 'reference feed unreachable — retrying';
+    setTimeout(loadZec, 8000);
+  }
+}
+loadZec();
+setInterval(loadZec, 60000);
+
+// --- Launch state ---
+function applyLaunchState(){
+  const buyBtn = document.getElementById('buyBtn');
+  const subnote = document.getElementById('subnote');
+  const s3t = document.getElementById('step3title');
+  const s3x = document.getElementById('step3text');
+  const chartFrame = document.getElementById('chartFrame');
+
+  if (X_URL) document.getElementById('xLink').href = X_URL;
+  if (TELEGRAM_URL) document.getElementById('tgLink').href = TELEGRAM_URL;
+
+  if (CONTRACT_ADDRESS && CONTRACT_ADDRESS.length > 30){
+    const pf = 'https://pump.fun/coin/' + CONTRACT_ADDRESS;
+    const jup = 'https://jup.ag/swap/SOL-' + CONTRACT_ADDRESS;
+    document.getElementById('pfLink').href = pf;
+    buyBtn.href = jup;
+    buyBtn.textContent = 'ACQUIRE $REDACTED';
+    buyBtn.classList.remove('disabled');
+    buyBtn.removeAttribute('aria-disabled');
+    subnote.innerHTML = 'CONTRACT: <code style="font-size:10px; word-break:break-all;">' + CONTRACT_ADDRESS + '</code> — verify on official X only';
+    s3t.textContent = 'Acquire $REDACTED';
+    s3x.innerHTML = 'Open the pump.fun link or swap SOL → $REDACTED on Jupiter. <b>Verify the CA above against official X before buying.</b>';
+    // DexScreener embed renders automatically once a pair exists; poll gently
+    chartFrame.innerHTML = '<iframe loading="lazy" src="https://dexscreener.com/solana/' + CONTRACT_ADDRESS + '?embed=1&theme=dark&trades=0&info=0" title="REDACTED chart"></iframe>';
+  } else {
+    buyBtn.textContent = 'CLEARANCE PENDING';
+    buyBtn.classList.add('disabled');
+  }
+}
+applyLaunchState();
+</script>
+</body>
+</html>
